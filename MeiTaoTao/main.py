@@ -6,8 +6,8 @@ path = os.path.dirname(os.path.realpath(__file__))
 def main():
 
     text=[]
-
-    for x in range(50):
+    num = input("请输入注册个数：")
+    for x in range(int(num)):
         user = common.randomStr(8) + "@666email.com"
         pwd = common.randomStr(8)
         text.append({"user": user, "pwd": pwd})
