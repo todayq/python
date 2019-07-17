@@ -23,7 +23,11 @@ class MainHandler(tornado.web.RequestHandler):
                 if all.find(IMEI3) == -1:
                     break
             while True:
-                SN = "KWG5T1710" + "".join(random.sample('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 6)) + "".join(random.sample('0123456789', 1))
+                PCBSN = "XPUDU171" + "".join(random.sample('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 7)) + "".join(random.sample('0123456789', 1))
+                if all.find(PCBSN) == -1:
+                    break
+            while True:
+                SN = "DU3SDH17" + "".join(random.sample('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 7)) + "".join(random.sample('0123456789', 1))
                 if all.find(SN) == -1:
                     break
             while True:
@@ -34,7 +38,7 @@ class MainHandler(tornado.web.RequestHandler):
                 WIMAC = "50:01:D9:%s:%s:%s" % ("".join(random.sample('ABCDEF0123456789', 2)), "".join(random.sample('ABCDEF0123456789', 2)),"".join(random.sample('ABCDEF0123456789', 2)))
                 if all.find(WIMAC) == -1:
                     break
-            req = {"MEID": MEID, "IMEI1": IMEI1, "IMEI2": IMEI2, "IMEI3": IMEI3, "SN": SN, "BLMAC": BLMAC,"WIMAC": WIMAC}
+            req = {"MEID": MEID, "IMEI1": IMEI1, "IMEI2": IMEI2,"IMEI3": IMEI3, "PCBSN": PCBSN, "SN": SN, "BLMAC": BLMAC,"WIMAC": WIMAC}
             f.write(str(req)+"\n")
             self.write(req)
         #MEID = "A000006D" + "".join(random.sample('ABCDEF0123456789', 6))
